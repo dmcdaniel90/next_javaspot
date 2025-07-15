@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: "Sacramento", sans-serif;
+  --default-font-family: "Karla", sans-serif;
+  --bg-gradient: url("/mesh-bg.png");
+  --color-coffee-200: #F5F3E7;
+  --color-coffee-400: #D7C4A8;
+  --color-coffee-500: #C48E4E;
+  --color-coffee-700: #8B5E3C;
+  --color-coffee-800: #4B3B2A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+button {
+  @apply py-2 px-4 rounded text-white;
 }
 
 body {
-  background: var(--background);
+  background: var(--bg-gradient);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: var(--font-display);
+  @apply text-7xl font-bold mb-4 text-coffee-200;
+}
+
+button {
+  @apply inline-block items-center justify-center rounded-xl border-[1.58px] py-4 px-6 shadow-md transition-all duration-300 text-coffee-800 font-bold bg-coffee-400 hover:bg-coffee-500 hover:text-coffee-200 hover:[transform:translateY(-.335rem)] hover:shadow-xl cursor-pointer;
 }
